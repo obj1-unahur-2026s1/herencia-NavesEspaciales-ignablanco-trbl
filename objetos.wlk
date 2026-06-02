@@ -96,6 +96,8 @@ class NaveDePasajeros inherits Nave{
             self.cargarBebida(6 * pasajeros)
             self.acercarseUnPocoAlSol()
         }
+
+        override method condicionAdicional() = true
 }
 
 class NaveDeCombate inherits Nave{
@@ -132,6 +134,8 @@ class NaveDeCombate inherits Nave{
             self.acelerar(15000)
             self.emitirMensaje("¡Saliendo en Misión!")
         }
+
+        override method condicionAdicional() = !misilesDesplegados
 }
 
 class NaveHospital inherits NaveDePasajeros{
@@ -148,5 +152,8 @@ class NaveHospital inherits NaveDePasajeros{
 }
 
 class naveDeCombateSigilosa inherits NaveDeCombate{
-
+    override method condicionAdicional(){
+        return
+        super() && estaVisible 
+    }
 }
