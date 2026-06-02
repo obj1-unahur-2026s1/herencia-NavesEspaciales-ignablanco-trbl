@@ -73,7 +73,9 @@ class NaveDePasajeros inherits Nave{
             bebida += unValor
         }
 
-        method prepararViaje(){
+        override method prepararViaje(){
+            super()
+            pasajeros = 3
             self.cargarComida(4 * pasajeros)
             self.cargarBebida(6 * pasajeros)
             self.acercarseUnPocoAlSol()
@@ -106,6 +108,14 @@ class NaveDeCombate inherits Nave{
         method primerMensajeEmitido() = mensajes.first()
         method ultimoMensajeEmitido() = mensajes.last()
         method esEscueta() = mensajes.all({ mensaje => mensaje.length() < 30 })
+
+        override method prepararViaje(){
+            super()
+            self.ponerseVisible()
+            self.replegarMisiles()
+            self.acelerar(15000)
+            self.emitirMensaje("¡Saliendo en Misión!")
+        }
 
 
 }
