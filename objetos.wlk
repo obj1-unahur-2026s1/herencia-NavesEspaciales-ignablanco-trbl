@@ -149,6 +149,11 @@ class NaveHospital inherits NaveDePasajeros{
         }
         method tienePreparadosQuirofanos() = tienePerparadosQuirofanos
 
+        override method condicionAdicional(){
+            return
+            !self.tienePreparadosQuirofanos() 
+        }
+
 }
 
 class naveDeCombateSigilosa inherits NaveDeCombate{
