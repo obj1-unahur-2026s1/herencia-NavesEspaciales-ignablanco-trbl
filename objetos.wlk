@@ -52,7 +52,9 @@ class naveBaliza inherits Nave{
         baliza = nuevoColor
     }
     method baliza() = baliza
-    method prepararViaje(){
+    
+    override method prepararViaje(){
+        super()
         self.cambiarColorDeBaliza("verde")
         self.ponerseParaleloAlSol()
     }
