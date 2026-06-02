@@ -3,6 +3,8 @@ class Nave {
     var direccion = 0
     var combustible = 0
 
+    method combustible() = combustible
+
     method cargarCombustible(unValor){
         combustible += unValor
     }
@@ -43,6 +45,13 @@ class Nave {
         self.cargarCombustible(30000)
         self.acelerar(5000)
     }
+
+    method estaTranquila() {
+        return
+            combustible >= 4000
+            && velocidad <= 12000
+    }
+
 }
 
 class naveBaliza inherits Nave{
@@ -116,6 +125,21 @@ class NaveDeCombate inherits Nave{
             self.acelerar(15000)
             self.emitirMensaje("¡Saliendo en Misión!")
         }
+}
 
+class NaveHospital inherits NaveDePasajeros{
+        var tienePerparadosQuirofanos = false
+
+        method prepararQuirofanos(){
+            tienePerparadosQuirofanos = true
+        }
+        method inhabilitarQuirofanos(){
+            tienePerparadosQuirofanos = false
+        }
+        method tienePreparadosQuirofanos() = tienePerparadosQuirofanos
+
+}
+
+class naveDeCombateSigilosa inherits NaveDeCombate{
 
 }
