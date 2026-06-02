@@ -50,7 +50,10 @@ class Nave {
         return
             combustible >= 4000
             && velocidad <= 12000
+            && self.condicionAdicional()
     }
+
+    method condicionAdicional()
 
 }
 
@@ -66,6 +69,10 @@ class naveBaliza inherits Nave{
         super()
         self.cambiarColorDeBaliza("verde")
         self.ponerseParaleloAlSol()
+    }
+
+    override method condicionAdicional() {
+        return baliza != "rojo"
     }
 
 }
